@@ -1,0 +1,71 @@
+<div *ngIf="event" class="container" id="event-detail" >
+<div class="row">       
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <img class="bd-placeholder-img card-img-top" src="{{imageUrl}}" title="{{event.type}}" width="100%" height="225" />   
+          </div>
+      </div>
+      <div class="col-md-8">
+        <ul class="list-group">
+            <li class="list-group-item">
+              <div class="md-v-line"><h2 id="event-title">{{event.title}}</h2></div> 
+            </li>
+            <li class="list-group-item ">
+              <div class="md-v-line event-info"> <strong>Creator </strong> <span>{{event.creator.name}} </span>   <img id="creator-avatar" src="{{event.creator.avatarUrl}}" />  </div>
+            </li>
+            <li class="list-group-item">
+              <div class="md-v-line event-info"> <strong>Date </strong> <span>{{eventDate}} </span></div> 
+            </li>           
+          </ul>
+      </div>     
+</div>
+
+<div class="row">
+      <div class="col-md-4">
+        <ul class="list-group">
+            <li class="list-group-item">
+              <div class="md-v-line"><strong>Location </strong> <span *ngIf="event.location">{{event.location.name}}</span> </div> 
+            </li>
+            <li class="list-group-item ">
+              <div class="md-v-line "> <span *ngIf="event.location"> Lat: {{event.location.latitude}} | Lon : {{event.location.longitude}} </span>  </div>
+            </li>               
+          </ul>
+      </div>
+      <div class="col-md-8">
+        <div class="map-container">
+            <div class="map-frame">
+              <div id="map"></div>
+            </div>
+          </div>
+      </div> 
+</div>
+
+<div class="row ev-list-item">
+    <div class="col-md-6">
+        <h4>Guests</h4>
+        <ul class="list-group list-group-flush overflow-auto " id="guests-list">
+            <ul class="list-group">
+              <li *ngFor="let guest of event.guests"  class="list-group-item">               
+                 <img class="guest-avatar" src="{{guest.avatarUrl}}" /> <span class="guest-name"> {{guest.name}} </span>
+              </li>              
+            </ul>
+          </ul>
+          
+    </div>
+    <div class="col-md-6">
+        <h4>Comments</h4>
+        <ul id="comments-list" class="list-group list-group-flush overflow-auto ">
+            <ul class="list-group">
+                <li *ngFor="let comment of event.comments"  class="list-group-item">
+                   <img class="comment-avatar" src="{{comment.user.avatarUrl}}" /> <span class="comnt-author" >{{comment.user.name}} | {{FormatDate(comment.timestamp)}}</span> <br />
+                   <span class="ev-comnt">{{comment.message}}</span>
+                  </li>
+            </ul>
+          </ul>
+    </div>
+</div>
+
+ 
+<div *ngIf="!event"  class="container">
+    <h3>NOT FOUND</h3>
+</div>

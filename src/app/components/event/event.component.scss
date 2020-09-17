@@ -1,0 +1,65 @@
+#event-detail {
+	margin: 30px auto;
+	width: 90%;
+}
+
+#creator-avatar {
+	float: right;
+	width: 50px;
+	height: 50px;
+}
+
+#event-title {
+	margin-bottom: 0px;
+}
+
+.event-info strong,
+.event-info span {
+	vertical-align: middle;
+	line-height: 50px;
+	font-size: 19px;
+}
+
+.map-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: 0px;
+}
+
+.map-frame {
+	border: 2px solid #e5e5e5;
+	height: 100%;
+}
+
+#map {
+	height: 100%;
+}
+
+#guests-list,
+#comments-list {
+	margin-top: 10px;
+	max-height: 246px;
+}
+
+.ev-list-item {
+	margin-top: 30px;
+}
+.guest-avatar,
+.comment-avatar {
+	float: left;
+	width: 25px;
+	height: 25px;
+	margin-right: 5px;
+}
+
+.ev-comnt {
+	font-style: italic;
+}
+.comnt-author,
+.guest-name,
+.ev-comnt {
+	font-size: 12px;
+}
